@@ -1,9 +1,13 @@
-import { Home } from "./components/Home";
+import { BrowserRouter } from "react-router-dom";
+import { MainRoutes } from "./Routes";
+
 
 function App() {
   return (
     <>
-      <Home />
+      <BrowserRouter>
+        <MainRoutes />
+      </BrowserRouter>
     </>
   );
 }

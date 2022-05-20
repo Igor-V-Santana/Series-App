@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import apiClient from "../../services/apiClient"
-import { CardSerie } from "../CardSerie"
+import { CardSerie } from "../../components/CardSerie"
 
 export const Home = () => {
 
