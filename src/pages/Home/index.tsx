@@ -3,6 +3,7 @@ import apiClient from "../../services/apiClient"
 import { CardSeriePopular } from "../../components/CardSeriePopular"
 import './home.css'
 import { CardSerieLancamento } from "../../components/CardSerieLancamento"
+import { Header } from "../../components/Header"
 
 export const Home = () => {
 
@@ -27,17 +28,20 @@ export const Home = () => {
     }, [])
 
     return(
-        <div className="home">
-            <div className="container">
-            <h3>Series Populares</h3>
-                <div className="containerSeriesPopulares">
-                    {seriesPopular.map((seriePopular: any) => <CardSeriePopular seriePopular={seriePopular} key={seriePopular.id}/>)}
-                </div>
-                <h3>Lançamentos</h3>
-                <div className="containerSeriesPopulares">
-                    {seriesLancamentos.map((serieLancamento: any) => <CardSerieLancamento serieLancamento={serieLancamento} key={serieLancamento.id}/>)}
+        <>
+            <Header />
+            <div className="home">
+                <div className="container">
+                <h3>Series Populares</h3>
+                    <div className="containerSeriesPopulares">
+                        {seriesPopular.map((seriePopular: any) => <CardSeriePopular seriePopular={seriePopular} key={seriePopular.id}/>)}
+                    </div>
+                    <h3>Lançamentos</h3>
+                    <div className="containerSeriesPopulares">
+                        {seriesLancamentos.map((serieLancamento: any) => <CardSerieLancamento serieLancamento={serieLancamento} key={serieLancamento.id}/>)}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
