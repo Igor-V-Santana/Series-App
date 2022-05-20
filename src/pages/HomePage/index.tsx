@@ -5,7 +5,7 @@ import './home.css'
 import { Header } from "../../components/Header"
 import { CardSerieLancamento } from "../../components/CardSerieLancamento"
 
-export const Home = () => {
+export const HomePage = () => {
 
     const [seriesPopular, setSeriesPopular] = useState([])
     const [seriesLancamentos, setSeriesLancamentos] = useState([])

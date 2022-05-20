@@ -8,6 +8,8 @@
     font-size: 0.8rem;
     cursor: pointer;
     transition: .7s;
+    text-decoration: none;
+    color: #000;
 }
 .card:hover{
     opacity: 0.5;
