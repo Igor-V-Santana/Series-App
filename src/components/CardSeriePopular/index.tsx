@@ -1,13 +1,5 @@
 import './card.css';
-
-type seriePopularProps = {
-    seriePopular: {
-        id: number,
-        name: string,
-        poster_path: string,
-        first_air_date: string,
-    }
-}
+import { seriePopularProps } from './CardSeriePopularType';
 
 export const CardSeriePopular = ({seriePopular} : seriePopularProps) => {
     return(

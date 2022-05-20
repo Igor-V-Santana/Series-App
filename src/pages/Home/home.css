@@ -11,6 +11,7 @@
 }
 .container h3{
     margin-left: 5px;
+    margin-top: 20px;
 }
 
 .containerSeriesPopulares{
@@ -18,5 +19,5 @@
     flex-direction: row;
     width: 100%;
     overflow-x: scroll;
-    margin-bottom: 30px;
+    margin-top: 10px;
 }

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import apiClient from "../../services/apiClient"
 import { CardSeriePopular } from "../../components/CardSeriePopular"
 import './home.css'
-import { CardSerieLancamento } from "../../components/CardSerieLancamento"
 import { Header } from "../../components/Header"
+import { CardSerieLancamento } from "../../components/CardSerieLancamento"
 
 export const Home = () => {
 
@@ -38,7 +38,7 @@ export const Home = () => {
                     </div>
                     <h3>Lançamentos</h3>
                     <div className="containerSeriesPopulares">
-                        {seriesLancamentos.map((serieLancamento: any) => <CardSerieLancamento serieLancamento={serieLancamento} key={serieLancamento.id}/>)}
+                        {seriesLancamentos.map((serieLancamento: any) => <CardSerieLancamento serieLancamento={serieLancamento} key={serieLancamento.id} />)}
                     </div>
                 </div>
             </div>

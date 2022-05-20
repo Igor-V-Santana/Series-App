@@ -1,11 +1,5 @@
-type serieLancamentoProps = {
-    serieLancamento: {
-        id: number,
-        name: string,
-        poster_path: string,
-        first_air_date: string,
-    }
-}
+import { serieLancamentoProps } from "./CardSerieLancamentoType"
+
 
 export const CardSerieLancamento = ({serieLancamento} : serieLancamentoProps) => {
     return(
