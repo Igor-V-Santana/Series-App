@@ -12,9 +12,32 @@ header {
 }
 
 .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #343090;
     color: #fff;
     height: 100px;
     width: 80%;
     border-radius: 0 0 8px 8px;
+}
+.header form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header input{
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.header button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    right: 15px;
+    width: 8%;
 }
