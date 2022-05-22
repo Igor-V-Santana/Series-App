@@ -14,13 +14,11 @@ export const HomePage = () => {
     const getSeries = async() => {
         const response = await apiClient.get("/popular?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR&page=1")
         setSeriesPopular(response.data.results)
-        console.log(response.data.results)
     }
 
     const getSeriesLancamentos = async() => {
         const response = await apiClient.get("/airing_today?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR&page=1")
         setSeriesLancamentos(response.data.results)
-        console.log(response.data.results)
     }
 
     useEffect(() => {
