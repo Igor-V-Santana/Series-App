@@ -10,6 +10,7 @@ export const HomePage = () => {
     const [seriesPopular, setSeriesPopular] = useState([])
     const [seriesLancamentos, setSeriesLancamentos] = useState([])
 
+
     const getSeries = async() => {
         const response = await apiClient.get("/popular?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR&page=1")
         setSeriesPopular(response.data.results)
