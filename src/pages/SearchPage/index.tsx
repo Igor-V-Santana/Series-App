@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CardSerieSearch } from "../../components/CardSerieSearch";
+import { HeaderSearch } from "../../components/HeaderSearch";
 
 export const SearchPage = () => {
 
@@ -21,6 +22,7 @@ export const SearchPage = () => {
 
     return(
         <div className="searchPage">
+            <HeaderSearch />
             {searchSeries.filter(s => s.poster_path && s.overview ).map(searchSerie => <CardSerieSearch searchSerie={searchSerie} key={searchSerie.id}/>)}
         </div>
     )
