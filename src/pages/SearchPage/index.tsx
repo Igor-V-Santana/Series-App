@@ -20,10 +20,19 @@ export const SearchPage = () => {
         serieSearch()
     }, [])
 
+    useEffect(() => {
+        serieSearch()
+    }, [name])
+
     return(
         <div className="searchPage">
             <HeaderSearch />
-            {searchSeries.filter(s => s.poster_path && s.overview ).map(searchSerie => <CardSerieSearch searchSerie={searchSerie} key={searchSerie.id}/>)}
+            {searchSeries.length > 0 
+                ? 
+                searchSeries.filter(s => s.poster_path).map(searchSerie => <CardSerieSearch searchSerie={searchSerie} key={searchSerie.id}/>) 
+                : 
+                <p>Nenhuma série foi encontrada com esse nome.</p>
+            }
         </div>
     )
 }

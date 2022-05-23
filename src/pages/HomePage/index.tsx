@@ -10,7 +10,6 @@ export const HomePage = () => {
     const [seriesPopular, setSeriesPopular] = useState([])
     const [seriesLancamentos, setSeriesLancamentos] = useState([])
 
-
     const getSeries = async() => {
         const response = await apiClient.get("/popular?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR&page=1")
         setSeriesPopular(response.data.results)
@@ -26,6 +25,19 @@ export const HomePage = () => {
         getSeriesLancamentos()
     }, [])
 
+    // const favoritar = (serie: any) => {
+    //     if (favorites.includes(serie)){
+    //         desfavoritar(serie)
+    //     } else {
+    //         setFavorites([...favorites, serie])
+    //         console.log(favorites)
+    //     }
+    // }
+
+    // const desfavoritar = (serie: any) => {
+    //     setFavorites(favorites.filter((s : any) => s !== serie))
+    // }
+
     return(
         <>
             <Header />
@@ -33,7 +45,7 @@ export const HomePage = () => {
                 <div className="container">
                 <h3>Series Populares</h3>
                     <div className="containerSeriesPopulares">
-                        {seriesPopular.map((seriePopular: any) => <CardSeriePopular seriePopular={seriePopular} key={seriePopular.id}/>)}
+                        {seriesPopular.map((seriePopular: any) => <CardSeriePopular seriePopular={seriePopular} key={seriePopular.id} />)}
                     </div>
                     <h3>Lançamentos</h3>
                     <div className="containerSeriesPopulares">

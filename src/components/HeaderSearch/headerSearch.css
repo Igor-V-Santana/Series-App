@@ -1,5 +1,12 @@
 .headerSearch {
     border-bottom: 1px solid black;
     width: 100%;
-    padding: 10px 200px;
+    padding: 0 185px;
+}
+
+.headerSearch input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    text-decoration: underline;
 }
