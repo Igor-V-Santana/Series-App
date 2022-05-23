@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useSearch } from '../../context/SearchContext'
+import { useSearch } from '../../hooks/useSearch'
 import './headerSearch.css'
 
 export const HeaderSearch = () => {
