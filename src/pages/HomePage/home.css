@@ -9,10 +9,6 @@
     flex-direction: column;
     width: 80%;
 }
-.container h3{
-    margin-left: 5px;
-    margin-top: 20px;
-}
 
 .containerSeriesPopulares{
     display: flex;

@@ -13,7 +13,6 @@ export const SearchPage = () => {
     const serieSearch = async() => {
         const response = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR&page=1&query=${name}&include_adult=false`)
         setSearchSeries(response.data.results)
-        console.log(response.data.results)
     }
 
     useEffect(() => {

@@ -1,0 +1,15 @@
+.title{
+    margin-left: 5px;
+    margin-top: 20px;
+    color: #343090;
+    font-size: 1.3rem;
+}
+.title::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(270.01deg, #4E47C2 -0.01%, rgba(78, 71, 194, 0) 237.73%);
+    border-radius: 4px;
+    margin-top: 4px;
+}

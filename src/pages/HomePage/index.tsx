@@ -4,6 +4,7 @@ import { CardSeriePopular } from "../../components/CardSeriePopular"
 import './home.css'
 import { Header } from "../../components/Header"
 import { CardSerieLancamento } from "../../components/CardSerieLancamento"
+import { Title } from "../../components/Title"
 
 export const HomePage = () => {
 
@@ -43,11 +44,11 @@ export const HomePage = () => {
             <Header />
             <div className="home">
                 <div className="container">
-                <h3>Series Populares</h3>
+                <Title title="Populares" />
                     <div className="containerSeriesPopulares">
                         {seriesPopular.map((seriePopular: any) => <CardSeriePopular seriePopular={seriePopular} key={seriePopular.id} />)}
                     </div>
-                    <h3>Lançamentos</h3>
+                    <Title title="Lançamentos" />
                     <div className="containerSeriesPopulares">
                         {seriesLancamentos.map((serieLancamento: any) => <CardSerieLancamento serieLancamento={serieLancamento} key={serieLancamento.id} />)}
                     </div>
