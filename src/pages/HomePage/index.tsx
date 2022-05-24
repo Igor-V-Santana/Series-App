@@ -26,19 +26,6 @@ export const HomePage = () => {
         getSeriesLancamentos()
     }, [])
 
-    // const favoritar = (serie: any) => {
-    //     if (favorites.includes(serie)){
-    //         desfavoritar(serie)
-    //     } else {
-    //         setFavorites([...favorites, serie])
-    //         console.log(favorites)
-    //     }
-    // }
-
-    // const desfavoritar = (serie: any) => {
-    //     setFavorites(favorites.filter((s : any) => s !== serie))
-    // }
-
     return(
         <>
             <Header />
