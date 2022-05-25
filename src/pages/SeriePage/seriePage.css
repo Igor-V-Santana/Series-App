@@ -46,7 +46,7 @@
     text-align: justify;
     font-size: 1.2rem;
     margin-top: 20px;
-    max-width: 900px;
+    max-width: 1050px;
 }
 .detail button{
     display: flex;
@@ -98,6 +98,7 @@
 
 .seasons ul li img{
     width: 100px;
+    height: 150px;
     border-radius: 5px;
     margin-right: 15px;
 }
