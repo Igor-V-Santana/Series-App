@@ -4,16 +4,19 @@ import { useFavorites } from "../../hooks/useFavorites"
 import apiClient from "../../services/apiClient"
 import { BsHeart, BsHeartFill, BsFillPlayFill } from 'react-icons/bs'
 import './seriePage.css'
+import { Title } from "../../components/Title"
 
 export const SeriePage = () => {
     
     const {id} = useParams()
 
     const [serie, setSerie] = useState<any>([])
+    const [seasons, setSeasons] = useState<any>([])
 
     const getSerie = async() => {
         const response = await apiClient.get(`/${id}?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR`)
         setSerie(response.data)
+        setSeasons(response.data.seasons)
         console.log(response.data)
     }
 
@@ -55,6 +58,23 @@ export const SeriePage = () => {
                         <button className="trailer"><BsFillPlayFill color="#343090"/>trailer</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div className="seasonsPage">
+            <div className="seasons">
+                <Title title="Temporadas"/>
+                <ul>
+                    {seasons.filter((s: any) => s.name !== 'Especiais').map((season: any) => (
+                        <li key={season.id}>
+                            <img src={`https://image.tmdb.org/t/p/original//${season.poster_path}`} alt="PosterSeason" />
+                            <div>
+                                <h3>{season.name}</h3>
+                                <p>{season.overview}</p>
+                                <p>{season.episode_count} episódios</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
         </>

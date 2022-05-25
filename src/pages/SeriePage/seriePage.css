@@ -81,3 +81,31 @@
     background-color: #000;
     border-radius: 4px;
 }
+.seasonsPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seasons {
+    width: 80%;
+}
+
+.seasons ul li{
+    display: flex;
+    margin-top: 20px;
+}
+
+.seasons ul li img{
+    width: 100px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+.seasons ul li h3{
+    margin-bottom: 10px;
+    color: #343090;
+}
+.seasons ul li p{
+    max-width: 1400px;
+    margin-top: 15px;
+}
