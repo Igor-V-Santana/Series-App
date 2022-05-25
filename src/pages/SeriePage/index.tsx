@@ -5,6 +5,7 @@ import apiClient from "../../services/apiClient"
 import { BsHeart, BsHeartFill, BsFillPlayFill } from 'react-icons/bs'
 import './seriePage.css'
 import { Title } from "../../components/Title"
+import { useModal } from "../../hooks/useModal"
 
 export const SeriePage = () => {
     
@@ -12,6 +13,8 @@ export const SeriePage = () => {
 
     const [serie, setSerie] = useState<any>([])
     const [seasons, setSeasons] = useState<any>([])
+    const [trailers, setTrailers] = useState<any>([])
+    const {modal, setModal} = useModal()
 
     const getSerie = async() => {
         const response = await apiClient.get(`/${id}?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR`)
@@ -20,6 +23,11 @@ export const SeriePage = () => {
         console.log(response.data)
     }
 
+    const getTrailers = async() => {
+        const response = await apiClient.get(`/${id}/videos?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=en-US`)
+        setTrailers(response.data.results)
+        console.log(response.data.results)
+    }
     //     const favoritar = (seriee: any) => {
     //     if (favorites.includes(seriee)){
     //         desfavoritar(seriee)
@@ -33,12 +41,27 @@ export const SeriePage = () => {
     //     setFavorites(favorites.filter((s : any) => s !== seriee))
     // }
 
+    const openModal = () => {
+        setModal(true)
+        getTrailers()
+    }
+
     useEffect(() => {
         getSerie()
     }, [])
 
     return(
         <>
+            <div className={modal ? 'modal-bg' : 'modal-of'}>
+                <div className='modal'>
+                    <div>
+                        <button onClick={() => setModal(false)}>X</button>
+                    </div>
+                    {trailers.length > 0 ? <div className='trailers'>{trailers.filter((trailer: any) => trailer.type === 'Trailer').map((trailerOfficial: any) => (
+                        <iframe key={trailerOfficial.id} width="700" height="400" src={`https://www.youtube.com/embed/${trailerOfficial.key}`}></iframe>
+                    ))}</div> : <p>Infelizmente não encontramos nenhum trailer para essa série!</p>}
+                </div>
+            </div>
         <div className="hero">
             <div className="bg">
                 <img src={`https://image.tmdb.org/t/p/original//${serie.backdrop_path}`} alt="backDropPath" />
@@ -55,7 +78,7 @@ export const SeriePage = () => {
                     </ul>
                     <div className="btn">
                         <button><BsHeart color="#343090"/></button>
-                        <button className="trailer"><BsFillPlayFill color="#343090"/>trailer</button>
+                        <button className="trailer" onClick={openModal}><BsFillPlayFill color="#343090"/>trailer</button>
                     </div>
                 </div>
             </div>
