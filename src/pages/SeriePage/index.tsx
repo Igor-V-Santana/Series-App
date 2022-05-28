@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useFavorites } from "../../hooks/useFavorites"
 import apiClient from "../../services/apiClient"
@@ -15,19 +15,64 @@ export const SeriePage = () => {
     const [seasons, setSeasons] = useState<any>([])
     const [trailers, setTrailers] = useState<any>([])
     const {modal, setModal} = useModal()
+    const {favorites, setFavorites} = useFavorites()
 
     const getSerie = async() => {
         const response = await apiClient.get(`/${id}?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=pt-BR`)
         setSerie(response.data)
         setSeasons(response.data.seasons)
-        console.log(response.data)
     }
 
     const getTrailers = async() => {
         const response = await apiClient.get(`/${id}/videos?api_key=f2fc535d6d8937dfb8102f933d32b2ce&language=en-US`)
         setTrailers(response.data.results)
-        console.log(response.data.results)
     }
+
+    const favoriteVideosId = useMemo<string[]>(() => {
+        const favoriteVideosIdArr: null | string[] = [];
+
+        if (favorites.length > 0){
+                
+          favorites.map((f: any) => {
+            favoriteVideosIdArr.push(f.id);
+          });
+        }
+
+        return favoriteVideosIdArr;
+      }, [favorites]);
+    
+      const handleAddNewFavorite = async (serie: any) => {
+        setFavorites([...favorites, serie])
+      };
+    
+      const handleRemoveAFavorite = async (serie: any) => {
+        setFavorites(favorites.filter((fv: any) => fv.id !== serie.id))
+        
+      };
+    
+      const checkIThatVideoIsAfavoriteVideo = (id: any) => {
+        const videoId = favoriteVideosId.filter((fv) => {
+          return fv == id;
+        });
+    
+        if (videoId.length > 0) return true;
+        else return false;
+      };
+    
+      const handleFavorite = async (e: React.MouseEvent, id: any, serie: any) => {
+        e.preventDefault();
+    
+        if (checkIThatVideoIsAfavoriteVideo(id)) {
+          handleRemoveAFavorite(serie);
+          const newItems = JSON.parse(localStorage.getItem('names') || "{}");
+          const filtered = newItems.filter((item:any) => item.id !== serie.id);
+          localStorage.setItem("names", JSON.stringify(filtered));
+        } else {
+          handleAddNewFavorite(serie);
+          localStorage.setItem("names", JSON.stringify([...favorites, serie]));
+        }
+      };
+      
     //     const favoritar = (seriee: any) => {
     //     if (favorites.includes(seriee)){
     //         desfavoritar(seriee)
@@ -48,6 +93,9 @@ export const SeriePage = () => {
 
     useEffect(() => {
         getSerie()
+        
+        const newItems = JSON.parse(localStorage.getItem('names') || "{}");
+        setFavorites(newItems)
     }, [])
 
     return(
@@ -77,12 +125,24 @@ export const SeriePage = () => {
                         ))}
                     </ul>
                     <div className="btn">
-                        <button><BsHeart color="#343090"/></button>
+                        <button className="favorite" onClick={(e) => handleFavorite(e, id, serie)}>
+                            {checkIThatVideoIsAfavoriteVideo(serie.id) 
+                            ? 
+                            <BsHeartFill />
+                            : 
+                            <BsHeart /> }
+                        </button>
                         <button className="trailer" onClick={openModal}><BsFillPlayFill color="#343090"/>trailer</button>
                     </div>
                 </div>
             </div>
         </div>
+        {/* <ul>
+            {favorites.map((f: any) => (
+            <li key={f.id + 1}>
+                {f.name}
+            </li>))}
+        </ul> */}
         <div className="seasonsPage">
             <div className="seasons">
                 <Title title="Temporadas"/>

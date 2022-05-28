@@ -80,6 +80,11 @@
     align-items: center;
     background-color: #000;
     border-radius: 4px;
+    transition: .7s;
+    cursor: pointer;
+}
+.btn .trailer:hover{
+    opacity: 0.6;
 }
 .seasonsPage{
     display: flex;
