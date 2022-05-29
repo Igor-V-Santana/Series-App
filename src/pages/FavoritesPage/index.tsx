@@ -16,7 +16,7 @@ export const FavoritesPage = () => {
     return (
         <div className="favoritesPage">
             <div className="favoritesContainer">
-                {favorites.filter((fav:any) => fav.name).map((favorite: any) => <CardFavorite favorite={favorite} key={favorite.id + 1}/> )}
+                {favorites.length > 0 ? favorites.filter((fav:any) => fav.name).map((favorite: any) => <CardFavorite favorite={favorite} key={favorite.id + 1}/> ) : <p>Voce não possuí vídeos favoritados!</p>}
             </div>
         </div>
     )

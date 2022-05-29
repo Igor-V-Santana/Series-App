@@ -79,7 +79,7 @@ export const SeriePage = () => {
 
     useEffect(() => {
         getSerie()
-        const newItems = JSON.parse(localStorage.getItem('names') || "{}");
+        const newItems = JSON.parse(localStorage.getItem('names') || "[]");
         setFavorites(newItems)
     }, [])
 
