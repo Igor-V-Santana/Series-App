@@ -86,6 +86,15 @@
 .btn .trailer:hover{
     opacity: 0.6;
 }
+
+.btn .favorite{
+    cursor: pointer;
+    transition: .7s;
+}
+.btn .favorite:hover{
+    opacity: 0.6;
+}
+
 .seasonsPage{
     display: flex;
     flex-direction: column;

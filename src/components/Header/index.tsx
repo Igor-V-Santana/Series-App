@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSearch } from '../../hooks/useSearch';
 
 import './header.css';
@@ -18,7 +18,13 @@ export const Header = () => {
 
     return (
         <div className='containerHeader'>
-            <header />
+            <header>
+                <div>
+                </div>
+                <div>
+                    <Link to="/favoritos">favoritos</Link>
+                </div>
+            </header>
             <div className='header'>
                 <form onSubmit={searchSerie}>
                     <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}/>

@@ -39,27 +39,26 @@ export const SeriePage = () => {
         }
 
         return favoriteVideosIdArr;
-      }, [favorites]);
+    }, [favorites]);
     
-      const handleAddNewFavorite = async (serie: any) => {
+    const handleAddNewFavorite = async (serie: any) => {
         setFavorites([...favorites, serie])
-      };
+    };
     
-      const handleRemoveAFavorite = async (serie: any) => {
+    const handleRemoveAFavorite = async (serie: any) => {
         setFavorites(favorites.filter((fv: any) => fv.id !== serie.id))
-        
-      };
+    };
     
-      const checkIThatVideoIsAfavoriteVideo = (id: any) => {
+    const checkIThatVideoIsAfavoriteVideo = (id: any) => {
         const videoId = favoriteVideosId.filter((fv) => {
           return fv == id;
         });
     
         if (videoId.length > 0) return true;
         else return false;
-      };
+    };
     
-      const handleFavorite = async (e: React.MouseEvent, id: any, serie: any) => {
+    const handleFavorite = async (e: React.MouseEvent, id: any, serie: any) => {
         e.preventDefault();
     
         if (checkIThatVideoIsAfavoriteVideo(id)) {
@@ -71,20 +70,7 @@ export const SeriePage = () => {
           handleAddNewFavorite(serie);
           localStorage.setItem("names", JSON.stringify([...favorites, serie]));
         }
-      };
-      
-    //     const favoritar = (seriee: any) => {
-    //     if (favorites.includes(seriee)){
-    //         desfavoritar(seriee)
-    //     } else {
-    //         setFavorites([...favorites, seriee])
-    //         localStorage.setItem('itens', JSON.stringify(favorites));
-    //     }
-    // }
-
-    // const desfavoritar = (seriee: any) => {
-    //     setFavorites(favorites.filter((s : any) => s !== seriee))
-    // }
+    };
 
     const openModal = () => {
         setModal(true)
@@ -93,7 +79,6 @@ export const SeriePage = () => {
 
     useEffect(() => {
         getSerie()
-        
         const newItems = JSON.parse(localStorage.getItem('names') || "{}");
         setFavorites(newItems)
     }, [])
@@ -110,56 +95,50 @@ export const SeriePage = () => {
                     ))}</div> : <p>Infelizmente não encontramos nenhum trailer para essa série!</p>}
                 </div>
             </div>
-        <div className="hero">
-            <div className="bg">
-                <img src={`https://image.tmdb.org/t/p/original//${serie.backdrop_path}`} alt="backDropPath" />
-            </div>
-            <div className="posterPath">
-                <img src={`https://www.themoviedb.org/t/p/original${serie.poster_path}`} alt="Poster" />
-                <div className="detail">
-                    <h3>{serie.name}</h3>
-                    <p>{serie.overview}</p>
-                    <ul className="genres">
-                        {serie.genres?.map((genre: any) => (
-                            <li key={genre.id}>{genre.name}</li>
-                        ))}
-                    </ul>
-                    <div className="btn">
-                        <button className="favorite" onClick={(e) => handleFavorite(e, id, serie)}>
-                            {checkIThatVideoIsAfavoriteVideo(serie.id) 
-                            ? 
-                            <BsHeartFill />
-                            : 
-                            <BsHeart /> }
-                        </button>
-                        <button className="trailer" onClick={openModal}><BsFillPlayFill color="#343090"/>trailer</button>
+            <div className="hero">
+                <div className="bg">
+                    <img src={`https://image.tmdb.org/t/p/original//${serie.backdrop_path}`} alt="backDropPath" />
+                </div>
+                <div className="posterPath">
+                    <img src={`https://www.themoviedb.org/t/p/original${serie.poster_path}`} alt="Poster" />
+                    <div className="detail">
+                        <h3>{serie.name}</h3>
+                        <p>{serie.overview}</p>
+                        <ul className="genres">
+                            {serie.genres?.map((genre: any) => (
+                                <li key={genre.id}>{genre.name}</li>
+                            ))}
+                        </ul>
+                        <div className="btn">
+                            <button className="favorite" onClick={(e) => handleFavorite(e, id, serie)}>
+                                {checkIThatVideoIsAfavoriteVideo(serie.id) 
+                                ? 
+                                <BsHeartFill />
+                                : 
+                                <BsHeart /> }
+                            </button>
+                            <button className="trailer" onClick={openModal}><BsFillPlayFill color="#343090"/>trailer</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        {/* <ul>
-            {favorites.map((f: any) => (
-            <li key={f.id + 1}>
-                {f.name}
-            </li>))}
-        </ul> */}
-        <div className="seasonsPage">
-            <div className="seasons">
-                <Title title="Temporadas"/>
-                <ul>
-                    {seasons.filter((s: any) => s.name !== 'Especiais').map((season: any) => (
-                        <li key={season.id}>
-                            <img src={`https://image.tmdb.org/t/p/original//${season.poster_path}`} alt="PosterSeason" />
-                            <div>
-                                <h3>{season.name}</h3>
-                                <p>{season.overview}</p>
-                                <p>{season.episode_count} episódios</p>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+            <div className="seasonsPage">
+                <div className="seasons">
+                    <Title title="Temporadas"/>
+                    <ul>
+                        {seasons.filter((s: any) => s.name !== 'Especiais').map((season: any) => (
+                            <li key={season.id}>
+                                <img src={`https://image.tmdb.org/t/p/original//${season.poster_path}`} alt="PosterSeason" />
+                                <div>
+                                    <h3>{season.name}</h3>
+                                    <p>{season.overview}</p>
+                                    <p>{season.episode_count} episódios</p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
-        </div>
         </>
     )
 }
