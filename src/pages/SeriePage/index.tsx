@@ -6,6 +6,8 @@ import { BsHeart, BsHeartFill, BsFillPlayFill } from 'react-icons/bs'
 import './seriePage.css'
 import { Title } from "../../components/Title"
 import { useModal } from "../../hooks/useModal"
+import { Header } from "../../components/Header"
+import { Navigation } from "../../components/Navigation"
 
 export const SeriePage = () => {
     
@@ -85,6 +87,7 @@ export const SeriePage = () => {
 
     return(
         <>
+            <Navigation />
             <div className={modal ? 'modal-bg' : 'modal-of'}>
                 <div className='modal'>
                     <div>

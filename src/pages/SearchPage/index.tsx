@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CardSerieSearch } from "../../components/CardSerieSearch";
 import { HeaderSearch } from "../../components/HeaderSearch";
+import { Navigation } from "../../components/Navigation";
 import { useFavorites } from "../../hooks/useFavorites";
 
 type teste = {
@@ -35,6 +36,7 @@ export const SearchPage = () => {
 
     return(
         <div className="searchPage">
+            <Navigation />
             <HeaderSearch />
             {searchSeries.length > 0 
                 ? 

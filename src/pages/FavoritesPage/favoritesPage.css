@@ -10,5 +10,9 @@
     grid-gap: 20px 30px;
     justify-items: center;
     padding: 20px;
-    width: 80%;
+    width: 84%;
+}
+
+.favoritesContainer h2{
+    background-color: aqua;
 }
