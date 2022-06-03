@@ -4,10 +4,10 @@
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/Igor-V-Santana/raro-projeto-final.git
+$ git clone https://github.com/Igor-V-Santana/Series-App.git
 
 # Acesse este repositório
-$ cd raro-projeto-final
+$ cd Series-App
 
 # Instale as dependências
 $ npm install
@@ -36,5 +36,5 @@ Feito com 💙 por:
 ---
 
 <p align="center">
-<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="1px"> 
+<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif"> 
 </p>
