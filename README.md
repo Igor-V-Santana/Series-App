@@ -1,3 +1,9 @@
+## Séries App
+
+<p align="center">
+  <img src="https://i.imgur.com/s4p9w8H.png" width="900">
+</p>
+
 ## 🧭 Como rodar o projeto
 
 ### Front-end
