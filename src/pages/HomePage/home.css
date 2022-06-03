@@ -1,0 +1,19 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.containerSeriesPopulares{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: scroll;
+    margin-top: 10px;
+}

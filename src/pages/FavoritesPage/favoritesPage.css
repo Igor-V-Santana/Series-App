@@ -1,0 +1,18 @@
+.favoritesPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favoritesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px 30px;
+    justify-items: center;
+    padding: 20px;
+    width: 84%;
+}
+
+.favoritesContainer h2{
+    background-color: aqua;
+}

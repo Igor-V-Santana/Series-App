@@ -1,0 +1,28 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #343090;
+    height: 80px;
+    width: 100%;
+    padding: 0 200px;
+}
+
+nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .7s;
+}
+nav a:hover{
+    opacity: 0.5;
+}
+
+.logo {
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+} 

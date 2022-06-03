@@ -1,0 +1,21 @@
+.card {
+    margin-bottom: 20px;
+    height: 320px;
+    margin-right: 20px;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: .7s;
+    text-decoration: none;
+    color: #000;
+}
+.card:hover{
+    opacity: 0.5;
+}
+
+.card img{
+    width: 200px;
+    height: 80%;
+    border-radius: 5px;
+}
